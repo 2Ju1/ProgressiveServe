@@ -1,0 +1,61 @@
+{
+  "mode": "progressive",
+  "description": "Progressive model only (Stage 1 with 24 active layers)",
+  "experiments": [
+    {
+      "mode": "progressive",
+      "timestamp": "2026-01-09T19:01:11.599538",
+      "progressive": {
+        "model_type": "progressive",
+        "model_path": "/acpl-ssd20/1218/A",
+        "timestamp": "2026-01-09T19:01:32.303282",
+        "cold_start_time": 20.186355113983154,
+        "ttft": 0.03184223175048828,
+        "output_throughput": 206.09108821376103,
+        "gpu_memory_gb": 27.693454265594482,
+        "total_layers": 32,
+        "active_layers": 24,
+        "network_metrics": {
+          "error": true,
+          "error_message": "Interface 'bond0.88' not found. Available interfaces: ['lo', 'eth0']",
+          "interface": "bond0.88"
+        },
+        "vllm_logs": {
+          "weight_loading_time": 9.02,
+          "model_loading_gb": 12.5523,
+          "model_loading_time": 9.137509,
+          "memory_profiling_time": 0.7,
+          "total_gpu_memory_gb": 31.36,
+          "gpu_memory_utilization": 0.9,
+          "model_weights_gb": 12.55,
+          "kv_cache_gb": 15.12,
+          "cuda_blocks": 1935,
+          "cpu_blocks": 512,
+          "max_concurrency": 7.56,
+          "graph_capturing_time": 8.0,
+          "graph_capturing_memory_gb": 0.29,
+          "init_engine_time": 10.32,
+          "raw_logs": [
+            "This model supports multiple tasks: {'classify', 'embed', 'reward', 'generate', 'score'}. Defaulting to 'generate'.",
+            "Initializing a V0 LLM engine (v0.7.4.dev254+ged6ea0657.d20260102) with config: model='/acpl-ssd20/1218/A', speculative_config=None, tokenizer='/acpl-ssd20/1218/A', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config=None, tokenizer_revision=None, trust_remote_code=True, dtype=torch.float16, max_seq_len=4096, download_dir=None, load_format=LoadFormat.AUTO, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(guided_decoding_backend='xgrammar', reasoning_backend=None), observability_config=ObservabilityConfig(show_hidden_metrics=False, otlp_traces_endpoint=None, collect_model_forward_time=False, collect_model_execute_time=False), seed=0, served_model_name=/acpl-ssd20/1218/A, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=False, chunked_prefill_enabled=False, use_async_output_proc=True, disable_mm_preprocessor_cache=False, mm_processor_kwargs=None, pooler_config=None, compilation_config={\"splitting_ops\":[],\"compile_sizes\":[],\"cudagraph_capture_sizes\":[256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],\"max_capture_size\":256}, use_cached_outputs=False, ",
+            "Using Flash Attention backend.",
+            "rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, TP rank 0",
+            "Starting to load model /acpl-ssd20/1218/A...",
+            "Loading weights took 9.02 seconds",
+            "Model loading took 12.5523 GB and 9.137509 seconds",
+            "Memory profiling takes 0.70 seconds\nthe current vLLM instance can use total_gpu_memory (31.36GiB) x gpu_memory_utilization (0.90) = 28.22GiB\nmodel weights take 12.55GiB; non_torch_memory takes 0.11GiB; PyTorch activation peak memory takes 0.44GiB; the rest of the memory reserved for KV Cache is 15.12GiB.",
+            "# cuda blocks: 1935, # CPU blocks: 512",
+            "Maximum concurrency for 4096 tokens per request: 7.56x",
+            "Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.",
+            "Graph capturing finished in 8 secs, took 0.29 GiB",
+            "init engine (profile, create kv cache, warmup model) took 10.32 seconds"
+          ]
+        },
+        "activation_progress": "75%",
+        "layers_pruned": 8
+      },
+      "experiment_id": "190c2c82-ae57-449d-99c3-649f99e7a95f",
+      "hostname": "e3a8e045298d"
+    }
+  ]
+}
