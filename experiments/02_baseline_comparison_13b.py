@@ -19,7 +19,8 @@ from typing import Dict, Optional
 
 # Python path 설정
 sys.path.insert(0, "/workspace/vllm_test")
-sys.path.insert(0, "/acpl-ssd20/1218/A")
+sys.path.insert(0, "/acpl-ssd30/13b_0108")
+sys.path.insert(0, "/acpl-ssd30/13b_0108")
 sys.path.insert(0, "/home/devewha/Juwon/vllm_test")
 
 # vLLM imports
@@ -37,12 +38,11 @@ ModelRegistry.register_model(
 
 # JSON 파일 경로
 JSON_FILES = {
-    "baseline": "01_baseline_only.json",
-    "progressive": "01_progressive_only.json",
-    "both": "01_both_baseline_first.json",
-    "reversed": "01_both_progressive_first.json"
+    "baseline": "02_baseline_only.json",
+    "progressive": "02_progressive_only.json",
+    "both": "02_both_baseline_first.json",
+    "reversed": "02_both_progressive_first.json"
 }
-
 
 class VLLMLogParser(logging.Handler):
     """vLLM 로그 파싱"""
@@ -186,9 +186,10 @@ class BaselineComparison:
         )
         
         cold_start_time = time.time() - cold_start_begin
-
+        
+        
         print(f" Cold Start Time: {cold_start_time:.2f} seconds")
-
+        
         # [2] TTFT 측정 - 처리 시간을 따로 콜드스타트로 분리(hydraserve등 정의 맞출것)
         print("\n[2] Measuring TTFT (Time To First Token)...")
         ttft_start = time.time()
@@ -353,16 +354,16 @@ def main():
         help="Execution mode: baseline (only baseline), progressive (only progressive), "
              "both (baseline→progressive), reversed (progressive→baseline)"
     )
-    parser.add_argument(
+     parser.add_argument(
         "--baseline-path",
         type=str,
-        default="/acpl-ssd20/Llama-2-7b",
+        default="/acpl-ssd30/Llama-2-13b-chat-hf",
         help="Path to baseline model"
     )
     parser.add_argument(
         "--progressive-path",
         type=str,
-        default="/acpl-ssd20/1218/A",
+        default="/acpl-ssd30/13b_0108",
         help="Path to progressive model"
     )
     parser.add_argument(
