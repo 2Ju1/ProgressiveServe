@@ -89,7 +89,7 @@ This enables:
 
 **Implementation**:
 - Integrated into **vLLM** (production LLM serving engine)
-- Evaluated on **LLaMA-2-7B**, NVIDIA A6000
+- Evaluated on **LLaMA-2-7B,13B**, NVIDIA A6000, RTX 5090 
 
 **Early Results**:
 - Cold start latency: **29.6s → 19.2s (35.1% ↓)**
